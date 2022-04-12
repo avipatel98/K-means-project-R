@@ -13,8 +13,10 @@ df_cleaned <- scale(df_cleaned)  ### scales all the values so they contribute ev
 
 
 ### assigning a center
+# picked_center = df_cleaned[1:3, ]  ### I wanted the first three rows and all of the data in the columns for those rows
 
-picked_center = df_cleaned[1:3, ]  ### I wanted the first three rows and all of the data in the columns for those rows
+### Once the algorithm worked I wanted to randomly select 3 rows so everytime I run the clustering algorithm I use new starting centers
+picked_center <- df_cleaned[sample(nrow(df_cleaned), 3), ]
 
 ### calculate the distance from each center for each data point
 ### create a function with two inputs that calculates the distance between each data point
